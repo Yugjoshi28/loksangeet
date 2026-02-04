@@ -1,81 +1,82 @@
 <div class="page-wrapper">
-<div class="page-content">
+    <div class="page-content">
 
-<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-<div class="breadcrumb-title pe-3">Table</div>
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Table</div>
 
-<div class="ps-3">
-<nav>
-<ol class="breadcrumb mb-0 p-0">
-<li class="breadcrumb-item">
-<a href="<?= base_url('dashboard');?>"><i class="bx bx-home-alt"></i></a>
-</li>
-<li class="breadcrumb-item active">Users</li>
-</ol>
-</nav>
+            <div class="ps-3">
+                <nav>
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="<?= base_url('dashboard'); ?>"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active">Users</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="card">
+            <div class="card-body">
+
+                <div class="d-lg-flex align-items-center mb-4 gap-3">
+                    <input type="text" id="search" class="form-control w-25" placeholder="Search user...">
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table mb-0">
+
+                        <thead class="table-light">
+                            <tr>
+                                <th>Index#</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="users"></tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 </div>
-</div>
 
-<hr>
-
-<div class="card">
-<div class="card-body">
-
-<div class="d-lg-flex align-items-center mb-4 gap-3">
-<input type="text" id="search" class="form-control w-25" placeholder="Search user...">
-</div>
-
-<div class="table-responsive">
-<table class="table mb-0">
-
-<thead class="table-light">
-<tr>
-<th>Index#</th>
-<th>Name</th>
-<th>Mobile</th>
-<th>Status</th>
-<th>Action</th>
-</tr>
-</thead>
-
-<tbody id="users"></tbody>
-
-</table>
-</div>
-
-</div>
-</div>
-
-</div>
-</div>
-
-<script src="<?= base_url('assets/js/jquery.min.js')?>"></script>
+<script src="<?= base_url('assets/js/jquery.min.js') ?>"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+    const site_url = "<?= base_url() ?>";
 
-const site_url="<?= base_url()?>";
+    function loadUsers(search = '') {
 
-function loadUsers(search=''){
+        $.ajax({
+            url: site_url + "index.php/admin/user/fetch_users",
+            type: "POST",
+            data: {
+                search: search
+            },
+            dataType: "json",
 
-$.ajax({
-url: site_url+"index.php/admin/user/fetch_users",
-type:"POST",
-data:{search:search},
-dataType:"json",
+            success: function(res) {
 
-success:function(res){
+                let html = '';
 
-let html='';
+                if (!res.data.length) {
+                    $("#users").html('<tr><td colspan="5" class="text-center">No users found</td></tr>');
+                    return;
+                }
 
-if(!res.data.length){
-$("#users").html('<tr><td colspan="5" class="text-center">No users found</td></tr>');
-return;
-}
+                res.data.forEach((u, i) => {
 
-res.data.forEach((u,i)=>{
-
-html+=`
+                    html += `
 <tr>
 
 <td>${i+1}</td>
@@ -115,40 +116,42 @@ data-id="${u.id}" data-status="1">
 </td>
 
 </tr>`;
-});
+                });
 
-$("#users").html(html);
+                $("#users").html(html);
 
-}
+            }
 
-});
+        });
 
-}
+    }
 
-loadUsers();
+    loadUsers();
 
-$("#search").keyup(function(){
-loadUsers($(this).val());
-});
+    $("#search").keyup(function() {
+        loadUsers($(this).val());
+    });
 
-$(document).on("click",".toggle-status-btn",function(){
+    $(document).on("click", ".toggle-status-btn", function() {
 
-let id=$(this).data("id");
-let status=$(this).data("status");
+        let id = $(this).data("id");
+        let status = $(this).data("status");
 
-$.post(site_url+"index.php/admin/user/toggle_status",{id:id,status:status},function(){
+        $.post(site_url + "index.php/admin/user/toggle_status", {
+            id: id,
+            status: status
+        }, function() {
 
-Swal.fire({
-icon:'success',
-title:'Status Updated',
-timer:1500,
-showConfirmButton:false
-});
+            Swal.fire({
+                icon: 'success',
+                title: 'Status Updated',
+                timer: 1500,
+                showConfirmButton: false
+            });
 
-setTimeout(()=>loadUsers($("#search").val()),1500);
+            setTimeout(() => loadUsers($("#search").val()), 1500);
 
-});
+        });
 
-});
-
+    });
 </script>
