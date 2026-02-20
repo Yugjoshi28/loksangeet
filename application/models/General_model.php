@@ -79,14 +79,13 @@ class General_model extends CI_Model
         $query = $this->db->get('customers');
         return $query->result();
     }
-  public function get_all_categories($search = null)
-{
-    if (!empty($search)) {
-        $this->db->like('name', $search);
+    public function get_all_categories($search = null)
+    {
+        if (!empty($search)) {
+            $this->db->like('name', $search);
+        }
+        return $this->db->order_by('parent_id ASC, name ASC')
+            ->get('categories')
+            ->result();
     }
-    return $this->db->order_by('parent_id ASC, name ASC')
-                    ->get('categories')
-                    ->result();
-}
-
 }

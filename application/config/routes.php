@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -60,6 +60,14 @@ $route['add_sub_category'] = 'admin/category/add_sub_category';
 $route['songs'] = 'admin/song';
 $route['add_new_song'] = 'admin/song/add_new_song';
 $route['users'] = 'admin/user';
+$route['admin/certificate'] = 'admin/certificate/index';
+$route['admin/certificate/fetch'] = 'admin/certificate/fetch_certificates';
+$route['admin/certificate/toggle_status'] = 'admin/certificate/toggle_status';
+
+
+
+
+
 
 
 // api route
@@ -74,6 +82,22 @@ $route['api/search_song']['GET'] = 'api/api/search_song';
 $route['api/add_favorite']['POST'] = 'api/api/add_favorite';
 $route['api/list_favorite_songs']['GET'] = 'api/api/list_favorite_songs';
 $route['api/profile']['GET'] = 'api/api/profile';
+
+
+
+$route['api/search_category']['GET'] = 'api/api/search_category';
+$route['api/song_search']['GET'] = 'api/api/song_search';
+$route['api/category']['GET'] = 'api/api/get_category';
+$route['api/sub_category']['GET'] = 'api/api/getSubCategories';
+$route['api/certificates'] ['GET']= 'api/api/get_certificates';
+
+$route['api/add_suggestion']['POST'] = 'api/api/add_suggestion';
+
+
+
+
+
+
 
 
 
