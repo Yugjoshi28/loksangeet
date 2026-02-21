@@ -54,89 +54,95 @@
                 </div>
             </div>
             <!--navigation-->
-         <ul class="metismenu" id="menu">
+            <ul class="metismenu" id="menu">
 
-    <!-- Dashboard -->
-    <li>
-        <a href="<?= base_url('dashboard'); ?>">
-            <div class="parent-icon"><i class='bx bx-home-alt'></i></div>
-            <div class="menu-title">Dashboard</div>
-        </a>
-    </li>
+                <!-- Dashboard -->
+                <li>
+                    <a href="<?= base_url('dashboard'); ?>">
+                        <div class="parent-icon"><i class='bx bx-home-alt'></i></div>
+                        <div class="menu-title">Dashboard</div>
+                    </a>
+                </li>
 
-    <!-- Category -->
-    <li>
-        <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class='bx bx-category'></i></div>
-            <div class="menu-title">Categories</div>
-        </a>
-        <ul>
-            <li>
-                <a href="<?= base_url('category'); ?>">
-                    <i class='bx bx-list-ul'></i>All Categories
-                </a>
-            </li>
-            <li>
-                <a href="<?= base_url('add_category'); ?>">
-                    <i class='bx bx-plus-circle'></i>Add Category
-                </a>
-            </li>
-        </ul>
-    </li>
+                <!-- Category -->
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-category'></i></div>
+                        <div class="menu-title">Categories</div>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="<?= base_url('category'); ?>">
+                                <i class='bx bx-list-ul'></i>All Categories
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('add_category'); ?>">
+                                <i class='bx bx-plus-circle'></i>Add Category
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-    <!-- Songs -->
-    <li>
-        <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class='bx bxs-music'></i></div>
-            <div class="menu-title">Songs</div>
-        </a>
-        <ul>
-            <li>
-                <a href="<?= base_url('songs'); ?>">
-                    <i class='bx bx-list-ul'></i>All Songs
-                </a>
-            </li>
-            <li>
-                <a href="<?= base_url('add_new_song'); ?>">
-                    <i class='bx bx-plus'></i>Add Song
-                </a>
-            </li>
-        </ul>
-    </li>
+                <!-- Songs -->
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bxs-music'></i></div>
+                        <div class="menu-title">Songs</div>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="<?= base_url('songs'); ?>">
+                                <i class='bx bx-list-ul'></i>All Songs
+                            </a>
+                        </li>
 
-    <!-- Users -->
-    <li>
-        <a href="<?= base_url('admin/user'); ?>">
-            <div class="parent-icon"><i class='bx bx-group'></i></div>
-            <div class="menu-title">Users</div>
-        </a>
-    </li>
+                        <li>
+                            <a href="<?= base_url('admin/song/user_songs'); ?>">
+                                <i class='bx bx-list-ul'></i>Add by Users
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= base_url('add_new_song'); ?>">
+                                <i class='bx bx-plus'></i>Add Song
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-    <!-- Certificates -->
-    <li>
-        <a href="<?= base_url('admin/certificate'); ?>">
-            <div class="parent-icon"><i class='bx bx-award'></i></div>
-            <div class="menu-title">Certificates</div>
-        </a>
-    </li>
+                <!-- Users -->
+                <li>
+                    <a href="<?= base_url('admin/user'); ?>">
+                        <div class="parent-icon"><i class='bx bx-group'></i></div>
+                        <div class="menu-title">Users</div>
+                    </a>
+                </li>
 
-    <!-- Suggestions -->
-    <li>
-        <a href="<?= base_url('admin/suggestion'); ?>">
-            <div class="parent-icon"><i class='bx bx-message-square-dots'></i></div>
-            <div class="menu-title">Suggestions</div>
-        </a>
-    </li>
+                <!-- Certificates -->
+                <li>
+                    <a href="<?= base_url('admin/certificate'); ?>">
+                        <div class="parent-icon"><i class='bx bx-award'></i></div>
+                        <div class="menu-title">Certificates</div>
+                    </a>
+                </li>
 
-    <!-- Logout -->
-    <li>
-        <a href="<?= base_url('logout'); ?>">
-            <div class="parent-icon"><i class='bx bx-log-out'></i></div>
-            <div class="menu-title">Logout</div>
-        </a>
-    </li>
+                <!-- Suggestions -->
+                <li>
+                    <a href="<?= base_url('admin/suggestion'); ?>">
+                        <div class="parent-icon"><i class='bx bx-message-square-dots'></i></div>
+                        <div class="menu-title">Suggestions</div>
+                    </a>
+                </li>
 
-</ul>
+                <!-- Logout -->
+                <li>
+                    <a href="<?= base_url('logout'); ?>">
+                        <div class="parent-icon"><i class='bx bx-log-out'></i></div>
+                        <div class="menu-title">Logout</div>
+                    </a>
+                </li>
+
+            </ul>
 
 
 

@@ -49,7 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = '';
+$route['default_controller'] = 'admin/login';
 $route['admin'] = 'admin/login';
 $route['dashboard'] = 'admin/dashboard';
 $route['logout'] = 'admin/login/logout';
@@ -82,7 +82,11 @@ $route['api/search_song']['GET'] = 'api/api/search_song';
 $route['api/add_favorite']['POST'] = 'api/api/add_favorite';
 $route['api/list_favorite_songs']['GET'] = 'api/api/list_favorite_songs';
 $route['api/profile']['GET'] = 'api/api/profile';
-
+$route['admin/user/edit/(:num)'] = 'admin/user/edit/$1';
+$route['admin/user/update'] = 'admin/user/update';
+$route['admin/song/user_songs'] = 'admin/song/user_songs';
+$route['api/my-song-status']['GET'] = 'api/api/my_song_status';
+$route['api/add_user_song']['POST'] = 'api/api/add_user_song';
 
 
 $route['api/search_category']['GET'] = 'api/api/search_category';
@@ -94,13 +98,10 @@ $route['api/certificates'] ['GET']= 'api/api/get_certificates';
 $route['api/add_suggestion']['POST'] = 'api/api/add_suggestion';
 
 
+$route['api/profile_details']['POST'] = 'api/api/profile_details';
+$route['api/profile_details']['GET']  = 'api/api/profile_details_get';
 
-
-
-
-
-
-
+// $route['profiletest'] = 'api/api/profile_details';
 
 
 
